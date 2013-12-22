@@ -1,9 +1,13 @@
 class newrelic::package {
-    include newrelic::repo
+    
+    $repo_class = $::osfamily ? {
+        debian => newrelic::repos::apt,
+        redhat => newrelic::repos::yum, 
+    }
 
     package { "newrelic-sysmond":
         ensure  => latest,
         notify  => Class["newrelic::server"],
-        require => Class["newrelic::repo"];
+        require => Class[$repo_class];
     }
 }

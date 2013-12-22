@@ -6,6 +6,13 @@ agent on your servers.
 
 This module supports yum and apt-based distributions
 
+# Requirements
+
+### Modules needed:
+
+puppetlabs-stdlib ( https://github.com/puppetlabs/puppetlabs-stdlib )
+puppetlabs-apt ( https://github.com/puppetlabs/puppetlabs-apt ) only for Debian/Ubuntu
+
 Installation
 ------------
 
