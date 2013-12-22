@@ -4,7 +4,9 @@ class newrelic::package {
         debian => newrelic::repos::apt,
         redhat => newrelic::repos::yum, 
     }
-
+   
+    include $repo_class
+    
     package { "newrelic-sysmond":
         ensure  => latest,
         notify  => Class["newrelic::server"],
